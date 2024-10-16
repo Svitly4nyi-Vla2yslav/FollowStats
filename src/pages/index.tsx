@@ -21,6 +21,8 @@ export default function Home() {
             Get Started{" "}
           </span>
         </Link>
+        <Link href="/login">login</Link>
+        <Link href="/signup">signup</Link>
       </div>
     </div>
   );
