@@ -15,7 +15,7 @@ const Login: React.FC = () => {
       console.log("User logged in");
       setEmail("");
       setPassword("");
-      setError("")
+      setError("");
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -51,7 +51,8 @@ const Login: React.FC = () => {
         onChange={(e) => setPassword(e.target.value)}
         placeholder="Password ㊙️"
       />
-      <button type="submit"
+      <button
+        type="submit"
         className="p-2 bg-blue-500 text-yellow-300 rounded"
         onClick={handleLogin}
       >
