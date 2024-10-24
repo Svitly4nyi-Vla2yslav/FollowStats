@@ -15,7 +15,7 @@ const Onboarding: React.FC = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-        `https://jsonplaceholder.typicode.com/users/1`
+          `https://jsonplaceholder.typicode.com/users/1`
         );
         console.log("user data:", response.data);
         router.push("/");

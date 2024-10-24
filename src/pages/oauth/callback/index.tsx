@@ -21,7 +21,7 @@ const Callback: React.FC = () => {
         }
       }
     };
-    exchangeCodeForToken()
+    exchangeCodeForToken();
   }, [code, router]);
   return <div>Redirecting . . .</div>;
 };
