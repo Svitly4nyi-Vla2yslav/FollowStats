@@ -20,6 +20,7 @@ const Callback: React.FC = () => {
           console.error("Error exchanging code for token", error);
         }
       }
+      
     };
     exchangeCodeForToken();
   }, [code, router]);
