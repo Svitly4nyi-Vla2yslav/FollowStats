@@ -5,7 +5,35 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Follow Stats",
-  description: "Test Project",
+  description: "Analyze and monitor your Instagram followers with Follow Stats.",
+  keywords: ["Instagram analytics", "followers tracking", "social media stats"],
+  openGraph: {
+    title: "Follow Stats",
+    description: "Get insights on your Instagram followers and activity.",
+    url: "https://follow-stats.netlify.app/",
+    siteName: "Follow Stats",
+    images: [
+      {
+        url: "/assets/tempImageryDmsK.png", // Обов’язково заміни на актуальне зображення для перегляду
+        width: 568,
+        height: 530,
+        alt: "Preview image for Follow Stats",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Follow Stats",
+    description: "Track and analyze your Instagram followers.",
+    images: ["/assets/tempImageryDmsK.png"], // Вкажи актуальне зображення для Twitter
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  robots: "index, follow",
 };
 
 export default function Home() {
