@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 
 const Callback: React.FC = () => {
   const router = useRouter();
-  const { code, state } = router.query;
+  const { code } = router.query;
 
   useEffect(() => {
     const exchangeCodeForToken = async () => {
