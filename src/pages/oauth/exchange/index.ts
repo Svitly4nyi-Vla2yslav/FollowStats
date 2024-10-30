@@ -1,13 +1,11 @@
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
-import { saveUserData } from '../../../firestore';
-// import { saveUserData } from "@/utils/firebase";
-
+import { saveUserData } from "../../../firestore";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { code } = req.query;
     if (!code) {
-        return res.status(400).json({ error: "😀 Autorization code is required" });
+        return res.status(400).json({ error: "😀 Authorization code is required" });
     }
 
     try {
@@ -21,6 +19,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         });
 
         const accessToken = tokenResponse.data.access_token;
+        if (!accessToken) {
+            throw new Error("No access token received from Facebook.");
+        }
 
         const userResponse = await axios.get(`https://graph.facebook.com/me?access_token=${accessToken}`);
         const userData = userResponse.data;
@@ -29,13 +30,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             id: userData.id,
             name: userData.name,
             accessToken: accessToken,
-
         });
 
         res.status(200).json({ message: "💛💙 Authorization successful", userData });
 
     } catch (error) {
-        res.status(500).json({ error: "🫠 Failed to exchange code for token" });
         console.error("🫠 Failed to exchange code for token", error);
+        res.status(500).json({ error: "🫠 Failed to exchange code for token" });
     }
 }
