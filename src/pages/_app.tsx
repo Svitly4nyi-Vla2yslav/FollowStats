@@ -30,6 +30,7 @@ export default function App({ Component, pageProps }: AppProps) {
           name="twitter:image"
           content="https://follow-stats.netlify.app/assets/tempImageryDmsK.png"
         />
+         <meta property="fb:app_id" content="900174205381464" />
       </Head>
       <Component {...pageProps} />
     </>
