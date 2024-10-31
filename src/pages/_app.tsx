@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           property="og:image"
-          content="https://follow-stats.netlify.app/assets/tempImageryDmsK.png"
+          content="https://follow-stats.netlify.app/assets/image/tempImageryDmsK.png"
         />
         <meta property="og:url" content="https://follow-stats.netlify.app" />
         <meta property="og:type" content="website" />
@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta
           name="twitter:image"
-          content="https://follow-stats.netlify.app/assets/tempImageryDmsK.png"
+          content="https://follow-stats.netlify.app/assets/image/tempImageryDmsK.png"
         />
          <meta property="fb:app_id" content="900174205381464" />
       </Head>
