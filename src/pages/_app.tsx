@@ -19,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta property="og:url" content="https://follow-stats.netlify.app" />
         <meta property="og:type" content="website" />
 
-        {/* Twitter Card метадані */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Follow Stats" />
         <meta
@@ -30,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
           name="twitter:image"
           content="https://follow-stats.netlify.app/assets/image/tempImageryDmsK.png"
         />
-         <meta property="fb:app_id" content="900174205381464" />
+        <meta property="fb:app_id" content="900174205381464" />
       </Head>
       <Component {...pageProps} />
     </>
