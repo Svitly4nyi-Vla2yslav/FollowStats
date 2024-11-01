@@ -12,6 +12,9 @@ const Login: React.FC = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       alert("User logged in");
+      window.gtag("event", "login", {
+        method: "email",
+      });
       console.log("User logged in");
       setEmail("");
       setPassword("");

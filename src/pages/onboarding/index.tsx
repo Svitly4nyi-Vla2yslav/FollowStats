@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const Onboarding: React.FC = () => {
@@ -7,6 +7,18 @@ const Onboarding: React.FC = () => {
   const [username, setUsername] = useState("");
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // Кастомна подія для перегляду сторінки статистики
+    window.gtag("event", "page_view", {
+      page_title: "Onboarding Page",
+      page_path: "/onboarding",
+      subject: "Welcome to Follow Stats!",
+      body: "<p>Дякуємо, що приєдналися до нас!</p>",
+      template_id: "welcome_template",
+
+    });
+  }, []);
 
   const nextStep = async () => {
     if (step < 3) {

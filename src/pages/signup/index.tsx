@@ -12,6 +12,10 @@ const Signup: React.FC = () => {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       alert("User registered");
+      window.gtag("event", "sign_up", {
+        method: "Email",
+      });
+
       console.log("User registered");
       setEmail("");
       setPassword("");
