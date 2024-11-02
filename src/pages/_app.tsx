@@ -4,26 +4,27 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
-// interface WindowWithFbq extends Window {
-//   fbq?: (...args: any[]) => void; // або конкретизуйте тип аргументів
-// }
+// Додаємо типи для властивостей `fbq`
+interface WindowWithFbq extends Window {
+  fbq?: ((...args: any[]) => void) & {
+    queue?: any[];
+    loaded?: boolean;
+    version?: string;
+  };
+}
 
-// declare var window: WindowWithFbq;
-
-// type WindowWithGtag = Window & {
-//   gtag?: (command: string, targetId: string, params?: object) => void;
-// };
-
-// const windowWithGtag = window as WindowWithGtag;
+declare const window: WindowWithFbq & typeof globalThis;
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      window.gtag("config", "G-P5ZL3XZE45", {
-        page_path: url,
-      });
+      if (window.gtag) {
+        window.gtag("config", "G-P5ZL3XZE45", {
+          page_path: url,
+        });
+      }
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -32,33 +33,29 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
 
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     // Ініціалізуємо Facebook Pixel
-  //     (function (f, b, e, v, n, t, s) {
-  //       if (f.fbq) return;
-  //       n = f.fbq = function () {
-  //         n.callMethod
-  //           ? n.callMethod.apply(n, arguments)
-  //           : n.queue.push(arguments);
-  //       };
-  //       if (!f.fbq) f.fbq = n;
-  //       n.push = n;
-  //       n.loaded = true;
-  //       n.version = "2.0";
-  //       n.queue = [];
-  //       t = b.createElement(e);
-  //       t.async = true;
-  //       t.src = "https://connect.facebook.net/en_US/fbevents.js";
-  //       s = b.getElementsByTagName(e)[0];
-  //       s.parentNode.insertBefore(t, s);
-  //     })(window, document, "script");
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Ініціалізуємо Facebook Pixel
+      (function (f: WindowWithFbq, b: Document, e: string, v: string, t?: HTMLScriptElement, s?: HTMLScriptElement) {
+        if (f.fbq) return;
+        f.fbq = function (...args: any[]) {
+          (f.fbq!.queue = f.fbq!.queue || []).push(args);
+        };
+        f.fbq.loaded = true;
+        f.fbq.version = "2.0";
+        f.fbq.queue = [];
+        t = b.createElement(e) as HTMLScriptElement;
+        t.async = true;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0] as HTMLScriptElement;
+        s?.parentNode?.insertBefore(t, s);
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 
-  //     // Налаштування Pixel із вказаним ID
-  //     window.fbq("init", "8450861085020995"); // заміни "YOUR_PIXEL_ID" на фактичний ID Pixel
-  //     window.fbq("track", "PageView");
-  //   }
-  // }, []);
+      // Налаштовуємо Pixel з ID та перевіряємо наявність `fbq`
+      window.fbq?.("init", "8450861085020995"); // Заміни на свій Pixel ID
+      window.fbq?.("track", "PageView");
+    }
+  }, []);
 
   return (
     <>
