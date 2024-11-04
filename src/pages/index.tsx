@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="flex items-center flex-col justify-center min-h-screen bg-gray-100">
         <h1 className="text-4xl font-bold text-blue-600">
           Hello, FollowStats!

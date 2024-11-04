@@ -2,10 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-gray-50;
+@layer utilities {
+  .bg-bg {
+    background-color: #f8f9ff;
+  }
 }
 
+body {
+  @apply bg-bg;
+}
 
+:root {
+  --purple: #6b3cff;
+  --white: #fff;
+  --black: #171624;
+  --dark-gray: #5f5d7e;
+  --light-gray: #ecefff;
+  --app-white: #fff;
+  --app-blue: #315df4;
+  --app-red: #ef4f4f;
+  --app-black: #2b2942;
+  --app-gray: #54585c;
+  --app-gray-light: #686d72;
+  --app-card: #f8f1ff;
+  --app-secondary-button: #f0deff;
+  --white: #fff;
+  --purple: #6b3cff;
+  --black: #2b2942;
+  --gray-dark: #5f5d7e;
+  --gray-light: #ecefff;
+  --bg: #f8f9ff;
+  --gray-middle: #b0aecc;
+  --pink: #ea2a86;
+  /* fonts */
 
-
+  --font-family: "Outfit", sans-serif;
+  --second-family: "Urbanist", sans-serif;
+  --third-family: "SF Pro Display", sans-serif;
+}

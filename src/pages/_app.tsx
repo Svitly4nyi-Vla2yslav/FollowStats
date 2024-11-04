@@ -2,29 +2,17 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import Script from "next/script";
 import React, { useEffect } from "react";
-
-// Додаємо типи для властивостей `fbq`
-interface WindowWithFbq extends Window {
-  fbq?: ((...args: any[]) => void) & {
-    queue?: any[];
-    loaded?: boolean;
-    version?: string;
-  };
-}
-
-declare const window: WindowWithFbq & typeof globalThis;
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      if (window.gtag) {
-        window.gtag("config", "G-P5ZL3XZE45", {
-          page_path: url,
-        });
-      }
+      window.gtag?.("config", "G-P5ZL3XZE45", {
+        page_path: url,
+      });
     };
 
     router.events.on("routeChangeComplete", handleRouteChange);
@@ -33,47 +21,9 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Ініціалізуємо Facebook Pixel
-      (function (f: WindowWithFbq, b: Document, e: string, v: string, t?: HTMLScriptElement, s?: HTMLScriptElement) {
-        if (f.fbq) return;
-        f.fbq = function (...args: any[]) {
-          (f.fbq!.queue = f.fbq!.queue || []).push(args);
-        };
-        f.fbq.loaded = true;
-        f.fbq.version = "2.0";
-        f.fbq.queue = [];
-        t = b.createElement(e) as HTMLScriptElement;
-        t.async = true;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0] as HTMLScriptElement;
-        s?.parentNode?.insertBefore(t, s);
-      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
-
-      // Налаштовуємо Pixel з ID та перевіряємо наявність `fbq`
-      window.fbq?.("init", "8450861085020995"); // Заміни на свій Pixel ID
-      window.fbq?.("track", "PageView");
-    }
-  }, []);
-
   return (
     <>
       <Head>
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-P5ZL3XZE45"
-        ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-P5ZL3XZE45');
-            `,
-          }}
-        />
         <meta property="og:title" content="Follow Stats" />
         <meta
           property="og:description"
@@ -85,7 +35,6 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta property="og:url" content="https://follow-stats.netlify.app" />
         <meta property="og:type" content="website" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Follow Stats" />
         <meta
@@ -98,6 +47,46 @@ export default function App({ Component, pageProps }: AppProps) {
         />
         <meta property="fb:app_id" content="900174205381464" />
       </Head>
+
+      {/* Google Analytics */}
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-P5ZL3XZE45"
+        strategy="afterInteractive"
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-P5ZL3XZE45');
+          `,
+        }}
+      />
+
+      {/* Facebook Pixel */}
+      <Script
+        id="facebook-pixel"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            !(function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)})(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '8450861085020995');
+            fbq('track', 'PageView');
+          `,
+        }}
+      />
+
       <Component {...pageProps} />
     </>
   );
