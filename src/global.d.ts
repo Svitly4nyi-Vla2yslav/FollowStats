@@ -1,8 +1,7 @@
 interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void; // замінюємо `any` на `unknown`
 }
 
 interface Window {
-    fbq?: (...args: any[]) => void;
+    fbq?: (...args: unknown[]) => void; // замінюємо `any` на `unknown`
 }
-  

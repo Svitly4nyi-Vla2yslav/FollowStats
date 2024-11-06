@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Follow Stats",
@@ -45,38 +46,37 @@ export default function Home() {
   }, []);
   return (
     <div className="flex items-center flex-col justify-end h-full bg-purple mx-auto">
-
       <div className="flex items-center flex-col justify-end h-screen max-w-[425px] mx-auto">
         <div className="flex justify-center w-full" data-aos="fade-up">
-          <img
+          <Image
             src="/assets/image/Frame1.webp"
             alt="Image 1"
             className=""
             data-aos="fade-up"
             data-aos-delay="100"
           />
-          <img
+          <Image
             src="/assets/image/Frame2.webp"
             alt="Image 2"
             className=""
             data-aos="fade-up"
             data-aos-delay="200"
           />
-          <img
+          <Image
             src="/assets/image/Frame.webp"
             alt="Image 3"
             className=""
             data-aos="fade-up"
             data-aos-delay="300"
           />
-          <img
+          <Image
             src="/assets/image/Vector1.webp"
             alt="Image 3"
             className="absolute w-full -z-10"
             data-aos="fade-up"
             data-aos-delay="300"
           />{" "}
-          <img
+          <Image
             src="/assets/image/Vector.webp"
             alt="Image 3"
             className="absolute -z-10"
@@ -89,7 +89,7 @@ export default function Home() {
         justify-center h-full z-10 max-w-[425px]"
         >
           {" "}
-          <img
+          <Image
             src="/assets/image/1.webp"
             alt="Image 1"
             className=""
@@ -101,8 +101,8 @@ export default function Home() {
           </h1>
           <p className="text-sm mt-5 text-center font-regular font-outfit text-black w-2/3">
             Check who has unfollowed you, who is interested in your profile, who
-            visits your page, how interesting your friends' profiles are, and
-            more!
+            visits your page, how interesting your friends&apos; profiles are,
+            and more!
           </p>
           <Link href="/onboarding" className="mt-14 mx-0">
             <span className="bg-purple p-4 px-28 text-light-gray rounded-lg ">
