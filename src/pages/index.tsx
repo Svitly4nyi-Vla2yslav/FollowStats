@@ -72,7 +72,7 @@ export default function Home() {
             className=""
             data-aos="fade-up"
             data-aos-delay="300"
-            width={108}
+            width={148}
             height={380}
           />
           <Image
