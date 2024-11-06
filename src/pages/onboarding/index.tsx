@@ -16,7 +16,6 @@ const Onboarding: React.FC = () => {
       subject: "Welcome to Follow Stats!",
       body: "<p>Дякуємо, що приєдналися до нас!</p>",
       template_id: "welcome_template",
-
     });
   }, []);
 
