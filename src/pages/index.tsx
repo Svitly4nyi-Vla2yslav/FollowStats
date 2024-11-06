@@ -48,33 +48,36 @@ export default function Home() {
     <div className="flex items-center flex-col justify-end h-full bg-purple mx-auto">
       <div className="flex items-center flex-col justify-end h-screen max-w-[425px] mx-auto">
         <div className="flex justify-center w-full" data-aos="fade-up">
-          <Image
-            src="/assets/image/Frame1.webp"
-            alt="Image 1"
-            className=""
-            data-aos="fade-up"
-            data-aos-delay="100"
-            width={148}
-            height={380}
-          />
-          <Image
-            src="/assets/image/Frame2.webp"
-            alt="Image 2"
-            className=" "
-            data-aos="fade-up"
-            data-aos-delay="200"
-            width={176}
-            height={380}
-          />
-          <Image
-            src="/assets/image/Frame.webp"
-            alt="Image 3"
-            className=""
-            data-aos="fade-up"
-            data-aos-delay="300"
-            width={133}
-            height={380}
-          />
+          <div className="flex" >
+            {" "}
+            <Image
+              src="/assets/image/Frame1.webp"
+              alt="Image 1"
+              className="flex"
+              data-aos="fade-up"
+              data-aos-delay="100"
+              width={148}
+              height={380}
+            />
+            <Image
+              src="/assets/image/Frame2.webp"
+              alt="Image 2"
+              className=""
+              data-aos="fade-up"
+              data-aos-delay="200"
+              width={176}
+              height={380}
+            />
+            <Image
+              src="/assets/image/Frame.webp"
+              alt="Image 3"
+              className="flex overflow-hidden"
+              data-aos="fade-up"
+              data-aos-delay="300"
+              width={133}
+              height={380}
+            />
+          </div>
           <Image
             src="/assets/image/Vector1.webp"
             alt="Image 3"
