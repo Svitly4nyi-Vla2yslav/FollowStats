@@ -54,13 +54,17 @@ export default function Home() {
             className=""
             data-aos="fade-up"
             data-aos-delay="100"
+            width={148}
+            height={380}
           />
           <Image
             src="/assets/image/Frame2.webp"
             alt="Image 2"
-            className=""
+            className=" "
             data-aos="fade-up"
             data-aos-delay="200"
+            width={176}
+            height={380}
           />
           <Image
             src="/assets/image/Frame.webp"
@@ -68,6 +72,8 @@ export default function Home() {
             className=""
             data-aos="fade-up"
             data-aos-delay="300"
+            width={108}
+            height={380}
           />
           <Image
             src="/assets/image/Vector1.webp"
@@ -75,6 +81,8 @@ export default function Home() {
             className="absolute w-full -z-10"
             data-aos="fade-up"
             data-aos-delay="300"
+            width={104}
+            height={81}
           />{" "}
           <Image
             src="/assets/image/Vector.webp"
@@ -82,6 +90,8 @@ export default function Home() {
             className="absolute -z-10"
             data-aos="fade-up"
             data-aos-delay="300"
+            width={459}
+            height={386}
           />
         </div>
         <div
@@ -95,6 +105,8 @@ export default function Home() {
             className=""
             data-aos="fade-up"
             data-aos-delay="100"
+            width={80}
+            height={80}
           />
           <h1 className="text-4xl text-center mt-3 font-bold text-black w-2/3">
             FollowStats: Profile Analyzer
@@ -104,7 +116,7 @@ export default function Home() {
             visits your page, how interesting your friends&apos; profiles are,
             and more!
           </p>
-          <Link href="/onboarding" className="mt-14 mx-0">
+          <Link href="/onboarding" className="mt-5 mx-0">
             <span className="bg-purple p-4 px-28 text-light-gray rounded-lg ">
               Get Started{" "}
             </span>
