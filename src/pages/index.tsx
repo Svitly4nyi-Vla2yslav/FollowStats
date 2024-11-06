@@ -48,7 +48,7 @@ export default function Home() {
     <div className="flex items-center flex-col justify-end h-full bg-purple mx-auto">
       <div className="flex items-center flex-col justify-end h-screen max-w-[425px] mx-auto">
         <div className="flex justify-center w-full" data-aos="fade-up">
-          <div className="flex" >
+          <div className="flex">
             {" "}
             <Image
               src="/assets/image/Frame1.webp"
