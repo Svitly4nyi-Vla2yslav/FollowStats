@@ -55,20 +55,20 @@ export default function Home() {
     <div className="flex items-center flex-col justify-end h-full bg-purple mx-auto">
       <div className="flex items-center flex-col justify-end h-screen max-w-[425px] mx-auto">
         <div className="flex justify-center w-full" data-aos="fade-up">
-          <div className="flex relative top-24">
+          <div className="flex relative top-24 max-w-[425px] mx-auto space-x-2 justify-center overflow-hidden">
             {" "}
             <Frame
-              className="relative left-6 -z-10"
+              className="relative -z-10"
                data-aos="fade-right"
               data-aos-delay="300"
             />
             <Frame1
-              className=" -z-20"
+              className=" -z-20 "
               data-aos="zoom-in"
               data-aos-delay="100"
             />
             <Frame2
-              className="relative right-8 -z-10"
+              className="relative -z-10"
               data-aos="fade-left"
               data-aos-delay="200"
             />
