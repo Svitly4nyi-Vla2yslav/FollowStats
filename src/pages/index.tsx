@@ -59,7 +59,7 @@ export default function Home() {
             {" "}
             <Frame
               className="relative -z-10"
-               data-aos="fade-right"
+              data-aos="fade-right"
               data-aos-delay="300"
             />
             <Frame1
@@ -86,10 +86,12 @@ export default function Home() {
         </div>
         <div
           className="bg-light-gray rounded-t-2xl flex items-center flex-col mx-0
-        justify-center h-full z-10 max-w-[425px]" data-aos="fade-up" data-aos-easing="linear"
+        justify-center h-full z-10 max-w-[425px]"
+          data-aos="fade-up"
+          data-aos-easing="linear"
         >
           {" "}
-          <Logo className="flex"  data-aos="zoom-in" data-aos-delay="200" />
+          <Logo className="flex" data-aos="zoom-in" data-aos-delay="200" />
           <h1 className="text-4xl text-center mt-3 font-bold text-black w-2/3">
             FollowStats: Profile Analyzer
           </h1>
@@ -107,68 +109,4 @@ export default function Home() {
       </div>
     </div>
   );
-}
-{
-  /* <div className="flex justify-center w-full" data-aos="fade-up">
-          <div className="flex">
-            {" "}
-            <Image
-              src="/assets/image/Frame1.webp"
-              alt="Image 1"
-              className="flex"
-              data-aos="fade-up"
-              data-aos-delay="100"
-              width={148}
-              height={380}
-            />
-            <Image
-              src="/assets/image/Frame2.webp"
-              alt="Image 2"
-              className=""
-              data-aos="fade-up"
-              data-aos-delay="200"
-              width={176}
-              height={380}
-            />
-            <Image
-              src="/assets/image/Frame.webp"
-              alt="Image 3"
-              className="flex overflow-hidden"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              width={133}
-              height={380}
-            />
-          </div>
-          <Image
-            src="/assets/image/Vector1.webp"
-            alt="Image 3"
-            className="absolute w-full -z-10"
-            data-aos="fade-up"
-            data-aos-delay="300"
-            width={104}
-            height={81}
-          />{" "}
-          <Image
-            src="/assets/image/Vector.webp"
-            alt="Image 3"
-            className="absolute -z-10"
-            data-aos="fade-up"
-            data-aos-delay="300"
-            width={459}
-            height={386}
-          />
-        </div> */
-}
-
-{
-  /* <Image
-            src="/assets/image/1.webp"
-            alt="Image 1"
-            className=""
-            data-aos="fade-up"
-            data-aos-delay="100"
-            width={80}
-            height={80}
-          /> */
 }
