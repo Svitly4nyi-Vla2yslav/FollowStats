@@ -85,14 +85,16 @@ export default function Home() {
           />
         </div>
         <div
-          className="bg-light-gray rounded-t-2xl flex items-center flex-col mx-0
+          className="bg-light-gray rounded-t-2xl flex 
+          items-center flex-col mx-0
         justify-center h-full z-10 max-w-[425px]"
           data-aos="fade-up"
           data-aos-easing="linear"
         >
           {" "}
           <Logo className="flex" data-aos="zoom-in" data-aos-delay="200" />
-          <h1 className="text-4xl text-center mt-3 font-bold text-black w-2/3">
+          <h1 className="text-4xl text-center mt-3 font-bold
+           text-black w-2/3">
             FollowStats: Profile Analyzer
           </h1>
           <p className="text-sm mt-5 text-center font-regular font-outfit text-black w-2/3">

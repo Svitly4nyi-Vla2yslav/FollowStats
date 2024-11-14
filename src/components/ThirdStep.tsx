@@ -1,24 +1,28 @@
 import React, { useEffect } from "react";
-import Group from "../assets/Group.svg";
-import Group8 from "../assets/Group8.svg";
+import Group from "../assets/Group11.svg";
+import Group8 from "../assets/Group9.svg";
 import Vector5 from "../assets/Vector5.svg";
 import Vector6 from "../assets/Vector6.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const FirstStep: React.FC = () => {
+const ThirdStep: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
 
   return (
-    <div className="flex items-center flex-col justify-end h-full
-     bg-purple mx-auto">
+    <div
+      className="flex items-center flex-col justify-end h-full
+     bg-purple mx-auto"
+    >
       <div className="flex justify-center w-full" data-aos="fade-up">
-        <div className="flex max-w-[425px] mx-auto space-x-2 justify-center 
-        overflow-hidden">
+        <div
+          className="flex max-w-[425px] mx-auto space-x-2 justify-center 
+        overflow-hidden"
+        >
           <Group
-            className="mt-5 -z-20 "
+            className="mt-5 relative left-24 -z-20 "
             data-aos="zoom-in"
             data-aos-delay="100"
           />
@@ -48,24 +52,26 @@ const FirstStep: React.FC = () => {
         <div
           className="bg-light-gray rounded-t-2xl flex 
           items-center flex-col mx-0
-        justify-start h-full z-10 max-w-[425px] pt-20"
+        justify-start h-full z-10 max-w-[425px] pt-5"
           data-aos="fade-up"
           data-aos-easing="linear"
         >
-          <h2 className="text-4xl text-center font-bold text-black w-2/3">
-            Who likes you
+          <h2
+            className="text-4xl text-center font-bold
+           text-black w-2/3"
+          >
+            See your stalkers
           </h2>
           <p
             className="text-sm mt-5 text-center font-regular 
-          font-outfit text-black w-2/3"
+          font-outfit text-black w-screen"
           >
-            Professional app to bring account analytics and reporting for
-            instagram
+            Figure out viewers of your account in real time
           </p>
           <div className="flex gap-2 mt-7 ">
+            <p className="h-1 bg-black w-6"></p>{" "}
+            <p className="h-1 bg-black w-6"></p>{" "}
             <p className="h-1 bg-purple w-6"></p>{" "}
-            <p className="h-1 bg-black w-6"></p>{" "}
-            <p className="h-1 bg-black w-6"></p>{" "}
           </div>
         </div>
       </div>
@@ -73,4 +79,4 @@ const FirstStep: React.FC = () => {
   );
 };
 
-export default FirstStep;
+export default ThirdStep;

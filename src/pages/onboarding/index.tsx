@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import FirstStep from "@/components/FirstStep";
+import SecondStep from "@/components/SecondStep";
+import ThirdStep from "@/components/ThirdStep";
 
 const Onboarding: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -42,13 +44,13 @@ const Onboarding: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-purple">
       {step === 1 && <FirstStep />}
-      {step === 2 && (
-        <p className="text-4xl  text-center font-bold text-blue-600">
-          Learn more about us!
-        </p>
-      )}
-      {step === 3 && (
-        <div className="flex flex-col items-center text-3xl  text-center font-bold text-blue-600">
+      {step === 2 && <SecondStep />}
+      {step === 3 && <ThirdStep />}
+      {step === 4 && (
+        <div
+          className="flex flex-col items-center text-3xl  text-center
+         font-bold text-blue-600"
+        >
           <p>Enter your Instagram username:</p>
           <input
             type="text"
@@ -61,10 +63,16 @@ const Onboarding: React.FC = () => {
       )}
       <button
         onClick={nextStep}
-        className="bg-purple mt-4 p-2 text-white rounded-lg absolute z-50 bottom-52 w-80"
+        className="bg-purple p-4 text-white rounded-lg absolute z-50 bottom-20 w-80"
         disabled={loading}
       >
-        {loading ? "Loading...🧻" : step < 3 ? <p className=""> Great</p> : "Finish"}
+        {loading ? (
+          "Loading...🧻"
+        ) : step < 4 ? (
+          <p className=""> Great</p>
+        ) : (
+          "Finish"
+        )}
       </button>
     </div>
   );
