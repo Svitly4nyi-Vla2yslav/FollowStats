@@ -55,7 +55,8 @@ export default function Home() {
     <div className="flex items-center flex-col justify-end h-full bg-purple mx-auto">
       <div className="flex items-center flex-col justify-end h-screen max-w-[425px] mx-auto">
         <div className="flex justify-center w-full" data-aos="fade-up">
-          <div className="flex relative top-24 max-w-[425px] mx-auto space-x-2 justify-center overflow-hidden">
+          <div className="flex relative top-24 max-w-[425px] mx-auto space-x-2 
+          justify-center overflow-hidden">
             {" "}
             <Frame
               className="relative -z-10"
